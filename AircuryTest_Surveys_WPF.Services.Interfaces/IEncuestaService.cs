@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace AircuryTest_Surveys_WPF.Services.Interfaces
 {
+    //Interfaz que se implementará en la clase de comunicación con el WS/API
     public interface IEncuestaService
     {
          Encuesta GetDatosEncuesta(int idEncuesta);

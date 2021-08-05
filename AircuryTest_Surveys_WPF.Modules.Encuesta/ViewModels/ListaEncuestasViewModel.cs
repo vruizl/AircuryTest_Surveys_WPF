@@ -18,12 +18,9 @@ namespace AircuryTest_Surveys_WPF.Modules.ListadoEncuestas.ViewModels
 
         private ObservableCollection<Encuesta> _encuestas;
         private readonly IEncuestaService _encuestaService;
-
-        private DelegateCommand<string> _navigateCommand;
         private readonly IRegionManager _regionManager;
 
-        public DelegateCommand<string> NavigateCommand =>
-               _navigateCommand ?? (_navigateCommand = new DelegateCommand<string>(ExecuteNavigateCommand));
+      
         public ObservableCollection<Encuesta> ListaEncuestas
         {
             get { return _encuestas; }
@@ -32,20 +29,14 @@ namespace AircuryTest_Surveys_WPF.Modules.ListadoEncuestas.ViewModels
        
         public DelegateCommand LanzaEncuestaCommand { get; set; }
 
-        public ListaEncuestasViewModel(IEncuestaService usuarioDonanteService,IRegionManager regionManager)
+        public ListaEncuestasViewModel(IEncuestaService encuestaService,IRegionManager regionManager)
         { 
-            _encuestaService = usuarioDonanteService;
-            ListaEncuestas = new ObservableCollection<Encuesta>(usuarioDonanteService.GetEncuestasSinDetalle());
+            _encuestaService = encuestaService;
             _regionManager = regionManager;
+
+            ListaEncuestas = new ObservableCollection<Encuesta>(_encuestaService.GetEncuestasSinDetalle());
+            
             LanzaEncuestaCommand = new DelegateCommand(Click);
-        }
-
-        void ExecuteNavigateCommand(string navigationPath)
-        {
-            if (string.IsNullOrEmpty(navigationPath))
-                throw new ArgumentNullException();
-
-            _regionManager.RequestNavigate(RegionNames.ListaEncuestasRegion, "DatosEncuestaView");
         }
 
         private void Click()
@@ -53,8 +44,6 @@ namespace AircuryTest_Surveys_WPF.Modules.ListadoEncuestas.ViewModels
             ObservableCollection<Encuesta> le = ListaEncuestas;
             int id = le.Where(e => e.Seleccionada == true).Select(e => e.IdEncuesta).ToList()[0];
             _regionManager.RequestNavigate(RegionNames.ListaEncuestasRegion, "DatosEncuestaView?id="+id);
-          
-
         }
     }
 }

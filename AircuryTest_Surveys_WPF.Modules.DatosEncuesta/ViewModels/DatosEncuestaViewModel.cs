@@ -40,17 +40,17 @@ namespace AircuryTest_Surveys_WPF.Modules.DatosEncuesta.ViewModels
 
         public DatosEncuestaViewModel(IEncuestaService usuarioDonanteService, IRegionManager regionManager)
         {
-            //string id = NavigationContext.Parameters["IdEncuesta"];
             _regionManager = regionManager;
-           
-            EnviarEncuestaCommand = new DelegateCommand(Click_Enviar);
-            VolverAtrasCommand = new DelegateCommand(Click_Volver);
             _encuestaService = usuarioDonanteService;
+
+            EnviarEncuestaCommand = new DelegateCommand(Click_Enviar);
+            VolverAtrasCommand = new DelegateCommand(Click_Volver);    
         }
 
        
         private void Click_Enviar()
         {
+            //En el caso de estar implementado y de ser necesario se enviarían los resultados de la encuesta que se ha realizado.
             Text = "La encuesta se ha enviado con éxito";
         }
 

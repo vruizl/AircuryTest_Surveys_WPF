@@ -9,6 +9,7 @@ namespace AircuryTest_Surveys_WPF.Business
 {
     public class Encuesta : BusinessBase
     {
+        //Se define como ObservableCollection para que junto con SetProperty se puedan actualizar los datos de la lista en la vista de forma automática.
         private ObservableCollection<Pregunta> _preguntas;
        
 

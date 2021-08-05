@@ -9,8 +9,6 @@ namespace AircuryTest_Surveys_WPF.Business
 {
     public class Pregunta:BusinessBase
     {
-       
-
         private ObservableCollection<Opcion> _opciones;
         private int _idPregunta;
 

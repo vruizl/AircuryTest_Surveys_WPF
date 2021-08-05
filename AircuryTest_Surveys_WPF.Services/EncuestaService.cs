@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace AircuryTest_Surveys_WPF.Services
 {
+    //Comunicacinoes con el WS/API... 
     public class EncuestaService :IEncuestaService
     {
         #region Crear datos (MOCK)

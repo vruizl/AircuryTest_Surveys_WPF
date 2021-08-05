@@ -72,7 +72,6 @@
   <ItemGroup>
     <Compile Include="BusinessBase.cs" />
     <Compile Include="Encuesta.cs" />
-    <Compile Include="NavigationItem.cs" />
     <Compile Include="Opcion.cs" />
     <Compile Include="Pregunta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
